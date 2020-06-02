@@ -1,38 +1,49 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:ital@1&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root{
+  --mainTransition:all 0.3s ease-in-out;
+  --mainSpacing:0.3rem;
+  --primaryColor:#5fb7ea;
+  --primaryRGBA:(0,0,0,0.3);
+  --mainGrey:#fafafa;
+  --DarkGrey:#5f5e5e;
+  --mainWhite:#fff;
+  --mainBlack:#222;
 }
+.title-text{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  letter-spacing: var(--mainSpacing);
+  text-transform: capitalize;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.text-main{
+  color:var(--primaryColor);
 }
-
-.App-link {
-  color: #61dafb;
+body{
+  font-family: 'Open Sans', sans-serif !important;/*important :to overide the bootstrap defaault font family */
+  background: var(--mainGrey) !important;
+  color:var(--mainBlack);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-link{
+  padding: 0.5rem 1rem;
+  background: var(--primaryColor);
+  color: var(--mainWhite);
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  outline: 2px solid var(--primaryColor);
+  outline-offset: 4px;
+  border: none;
+  transition: var(--mainTransition);
+  text-decoration: none;
+}
+.main-link:hover{
+background: var(--DarkGrey);
+text-decoration: none;
+color:var(--primaryColor);
+outline-color: var(--DarkGrey);
+}
+.cart-icon{
+  cursor: pointer;
 }
