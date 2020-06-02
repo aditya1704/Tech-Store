@@ -20,7 +20,7 @@ export default function SingleProductPage() {
                             <div className='container'>
                                 <div className='row'>
                                     <div className='col-10 mx-auto col-sm-8 col-md-6 my-3'>
-                                        <img src={`../${image}`} alt='product' className='img-fluid mb-4'></img>
+                                        <img src={image} alt='product' className='img-fluid mb-4'></img>
                                     
                                     </div>
                                     <div className='col-10 mx-auto col-sm-8 col-md-6 my-3'>

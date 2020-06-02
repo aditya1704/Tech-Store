@@ -2,6 +2,7 @@ import React from 'react'
 import {ProductConsumer} from '../context/context';
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
+import {FaRupeeSign} from 'react-icons/fa'
 
 export default function SideCart() {
     return (
@@ -21,7 +22,7 @@ export default function SideCart() {
                             )
                         })}
                         </ul>
-                        <h4 className='text-main text-capitalize mx-2 '>Total : ${cartTotal}</h4>
+                        <h4 className='text-main text-capitalize mx-2 '>Total : <FaRupeeSign/>{cartTotal}</h4>
                         <div className='text-center my-5'>
                             <Link to='/cart' className='main-link'>Go To Cart</Link>
                         </div>

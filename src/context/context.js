@@ -3,7 +3,8 @@
 import React  from 'react'
 import {Links} from './linkData'
 import {socialData} from './socialData'
-import {items} from './productData'
+//import {items} from './productData'
+import {client} from './contentful'
 //create an object of context api
 const ProductContext = React.createContext()
 
@@ -28,12 +29,20 @@ class ProductProvider extends React.Component{
         min:0,
         max:0,
         shipping:false,
-        comapny:'all'
+        company:'all'
     }
 
     componentDidMount(){
         //from contentful items
-        this.setProducts(items);
+        //this.setProducts(items);
+        client
+  .getEntries({
+      content_type:'techStoreProducts'
+  })
+  .then(response=>this.setProducts(response.items))
+  .catch(err => console.log(err));
+
+
     }
 
     //set Products
@@ -238,16 +247,14 @@ class ProductProvider extends React.Component{
         let tempPrice=parseInt(price)
         let tempProducts=[...storeProducts]
         //Filtering based on price
-        
         tempProducts=tempProducts.filter(product=>product.price <= tempPrice)
+
         //Filtering based on company
         if(company!=='all'){
             tempProducts=tempProducts.filter(product=>product.company===company)
         }
         if(shipping){
-            
             tempProducts=tempProducts.filter(item=>{
-                console.log(item.freeShipping)
                 return item.freeShipping===true}
                 )
         }
@@ -255,6 +262,7 @@ class ProductProvider extends React.Component{
             tempProducts=tempProducts.filter(item=>{
                 let tempSearch=search.toLowerCase()
                 let tempTitle=item.title.toLowerCase().slice(0,search.length)
+                
                 if(tempSearch===tempTitle){
                     return item
                 }

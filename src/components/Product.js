@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 import {FaSearch,FaCartPlus} from 'react-icons/fa'
 import {ProductConsumer} from '../context/context'
+import {FaRupeeSign} from 'react-icons/fa'
 
 export default function Product({product}) {
     const {title,image,id,price}=product
@@ -22,7 +23,7 @@ export default function Product({product}) {
                             </div>
                             <div className='card-body d-flex justify-content-between'>
                                 <p className='mb-0'>{title}</p>
-                                <p className='mb-0'>Rs.{price}</p>
+                                <p className='mb-0'><FaRupeeSign/>{price}</p>
                             </div>
                         </div>
                     </ProductWrapper>
